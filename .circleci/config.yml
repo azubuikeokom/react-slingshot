@@ -27,9 +27,9 @@ workflows:
   my_workflows:
     jobs:
       - build
-      - test
+      - test:
           requires:
             - buid
-      - analyze
+      - analyze:
           requires:
             - test
