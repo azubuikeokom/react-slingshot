@@ -5,7 +5,9 @@ jobs:
     docker: 
       - image:  circleci/node:13.8.0
     steps:
+      #brings repo with code to the current working directory of the docker environment
       - checkout
+      #npm installs modules and their dependies into node_modules of docker envrionment
       - run:  npm i
       - run: npm run lint
   test:
@@ -26,8 +28,8 @@ workflows:
     jobs:
       - build
       - test
-        requires:
+        require:
           - buid
       - analyze
-        requires:
+        require:
           - test
